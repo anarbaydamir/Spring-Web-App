@@ -1,0 +1,20 @@
+Spring annotations for now
+
+
+@Component ---- classi springe hevale etmek kimi bir sheydi. Yeni bu annotationu qiyursan ki spring bu classi ozinkileshdirsin ve oz imkanlarini bunula paylashsin
+
+@Repository ve @Server ---- Bunlar da componentdiler. @Repository yazanda bu classin baza ile elaqe qurdugunu gosterir, @Server ise deyishen adlarini gostermek uchun istifade olunur.
+
+@Configuration --- bu da Component ile eyni funksiyalara malikdir... Amma app ilk defe ishe dushende emeliyyatlar etmek uchun bu configuration ichinde yazirlar.
+Bir funksiya var ki, @ComponentScan(basePackages = { "mypackage" }) deyerek main packageden qiragqa olan packagei istifade etmek uchundur. Bunu componentde istifade ede bilmerik.
+
+@Bean //Biri var classin ustune Component annotationu yazirsan ki bunun obyektini Spring ozu yaratsin, biri de var Bean yazib classin obyektini ozun yaradirsan.
+	//yeni bu o demekdi ki app yarananda bu obyekti yarat.
+
+@Autowired //Bu springden gelen annotationdu, vezifesi bu interface'i istifade eden classi tapib buna inject etmek; loosely coupling
+@Qualifier("userDao1") //eger bu interfacei implement eden 2 class olarsa conflictin qarshisini almaq uchun qualifier istifade olunur.
+
+@Component yazilmalidi en azindan ki spring bu classi menimsesin. Repository gosterir ki class db connect classidi. Server classi da deyishenler olan classlarda olur.
+@Repository("userDao1") //bu classa ad verilir ki autowire edilende sirf bu addan istifade edilsin
+@Scope("prototype")//Bu zaman her defe class cagirilanda onun obyekti yeniden yaradilir... ya da prototype ya da singleton olur.
+
